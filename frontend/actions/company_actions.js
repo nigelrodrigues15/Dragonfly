@@ -41,3 +41,12 @@ export const receiveNews = news => {
         news
     };
 };
+export const RECEIVE_STATS = "RECEIVE_STATS";
+export const fetchStats = sym => dispatch =>
+    CompanyAPIUtil.fetchStats(sym).then(stats => dispatch(receiveStats(stats)));
+export const receiveStats = stats => {
+    return {
+        type: RECEIVE_STATS,
+        stats
+    };
+};

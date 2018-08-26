@@ -3,7 +3,8 @@ import {
     RECEIVE_CHART,
     RECEIVE_PRICE,
     RECEIVE_LOGO,
-    RECEIVE_NEWS
+    RECEIVE_NEWS,
+    RECEIVE_STATS
 } from "../actions/company_actions";
 
 const companyReducer = (state = {}, action) => {
@@ -21,6 +22,9 @@ const companyReducer = (state = {}, action) => {
 
         case RECEIVE_NEWS:
             return Object.assign(newState, { news: action.news });
+
+        case RECEIVE_STATS:
+            return Object.assign(newState, { stats: action.stats });
 
         default:
             return state;

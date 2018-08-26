@@ -71,8 +71,8 @@ class Company extends React.Component {
   }
 
   news() {
-    let news = this.props.news.map((article,i) => (
-        <div className="news-div">
+    let news = this.props.news.map((article, i) => (
+      <div className="news-div">
         <a key={i} href={article.url}>
           <img src={this.props.logo.url} alt="" />
           <p>{article.headline}</p>
@@ -102,30 +102,39 @@ class Company extends React.Component {
                 Home
               </Button>
             </Link>
+            <Button variant="outlined" id="research-button">
+              {this.props.match.params.companyTik}
+            </Button>
           </div>
         </div>
         <div className="company-detail">
           <div className="company-info">
-          <a className="analytics" href={`./${this.props.match.params.companyTik.toLowerCase()}_lda_viz.html`}>
-            <Button
-              variant="outlined"
-              color="primary"
-              className={this.props.button}
-              id="transfer-button"
+            <a
+              className="analytics"
+              href={`./${this.props.match.params.companyTik.toLowerCase()}_lda_viz.html`}
             >
-              Analytics
-            </Button>
-                    </a>
-                    <Link className="Link" to={`/research/${this.props.match.params.companyTik}`}>
-            <Button
-              variant="outlined"
-              color="primary"
-              className={this.props.button}
-              id="transfer-button"
+              <Button
+                variant="outlined"
+                color="primary"
+                className={this.props.button}
+                id="transfer-button"
+              >
+                Analytics
+              </Button>
+            </a>
+            <Link
+              className="Link"
+              to={`/research/${this.props.match.params.companyTik}`}
             >
-              Research
-            </Button>
-                    </Link>
+              <Button
+                variant="outlined"
+                color="primary"
+                className={this.props.button}
+                id="transfer-button"
+              >
+                Research
+              </Button>
+            </Link>
           </div>
           <br />
           <div className="company-stats">

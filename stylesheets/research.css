@@ -18,3 +18,10 @@
     color: black;
     margin-left: 5vw;
 }
+
+#research-button {
+    margin-left: 5vw;
+    border: 1px solid #4bb4ff;
+    background-color: #4bb4ff;
+    color: white;
+}

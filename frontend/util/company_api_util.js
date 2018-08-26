@@ -25,3 +25,10 @@ export const fetchNews = (sym) => (
         url: `https://api.iextrading.com/1.0/stock/${sym}/news/last/5`
     })
 );
+
+export const fetchStats = sym => (
+    $.ajax({
+        method: 'GET',
+        url: `https://api.iextrading.com/1.0/stock/${sym}/stats?filter=marketcap,latestEPS,revenue,grossProfit,shortRatio,peRatioHigh`
+    })
+);

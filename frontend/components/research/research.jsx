@@ -10,11 +10,11 @@ class Research extends React.Component {
   componentWillReceiveProps(nextProps) {}
 
   componentDidMount() {
-    this.props.fetchLogo(this.props.match.params.companyTik);
+      this.props.fetchStats(this.props.match.params.companyTik);
   }
 
   render() {
-    // if (this.props.logo === undefined) return null;
+    if (this.props.stats === undefined) return null;
     return (
       <div className="research-item">
         <div className="research-navbar">
@@ -30,7 +30,7 @@ class Research extends React.Component {
                 Home
               </Button>
             </Link>
-            <Button variant="outlined" id="home-research">
+            <Button variant="outlined" id="research-button">
               {this.props.match.params.companyTik}
             </Button>
           </div>

@@ -1,22 +1,16 @@
 import { connect } from "react-redux";
 import Research from "./research";
-import { fetchChart, fetchPrice, fetchNews, fetchLogo } from "../../actions/company_actions";
+import { fetchStats } from "../../actions/company_actions";
 
 const mapStateToProps = (state, ownprops) => {
     return {
-        // chart: state.company.chart,
-        // price: state.company.price,
-        // logo: state.company.logo,
-        // news: state.company.news,
+        stats: state.company.stats
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchChart: (sym) => dispatch(fetchChart(sym)),
-        fetchLogo: (sym) => dispatch(fetchLogo(sym)),
-        fetchNews: (sym) => dispatch(fetchNews(sym)),
-        fetchPrice: (sym) => dispatch(fetchPrice(sym))
+        fetchStats: (sym) => dispatch(fetchStats(sym))
     };
 };
 
