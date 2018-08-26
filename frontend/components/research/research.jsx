@@ -52,7 +52,6 @@ class Research extends React.Component {
       let label = k;
       for (let i = 0; i < 4; i++) {
         // row value
-        // debugger
         let value = this.marketCap(this.props.financials.financials[i][k]);
         cols.push(<TableCell>{ value }</TableCell>)
       }
