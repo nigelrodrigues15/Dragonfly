@@ -1,15 +1,6 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import Avatar from "@material-ui/core/Avatar";
-import ImageIcon from "@material-ui/icons/Image";
-import WorkIcon from "@material-ui/icons/Work";
-import BeachAccessIcon from "@material-ui/icons/BeachAccess";
 import {
   LineChart,
   Line,
@@ -80,9 +71,9 @@ class Company extends React.Component {
   }
 
   news() {
-    let news = this.props.news.map(article => (
+    let news = this.props.news.map((article,i) => (
         <div className="news-div">
-        <a href={article.url}>
+        <a key={i} href={article.url}>
           <img src={this.props.logo.url} alt="" />
           <p>{article.headline}</p>
         </a>

@@ -1,0 +1,20 @@
+.research-navbar {
+    /* background-color: #21ce99; */
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    margin-left: 5vw;
+    align-items: center;
+}
+
+.research-navbar-left {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#home-research {
+    border: 1px solid #4bb4ff;
+    color: black;
+    margin-left: 5vw;
+}
