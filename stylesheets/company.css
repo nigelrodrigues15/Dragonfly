@@ -20,12 +20,19 @@
     margin-right: 5vw;
 }
 
-#something-button {
+#transfer-button {
     margin-top: 50px;
     display: inline-flex;
     margin-bottom: 5vh;
     margin-left: 10%;
     margin-right: 10%;
+    width: 30vw;
+    /* border: 1px solid #4bb4ff; */
+}
+
+#transfer-button * {
+    text-decoration: none;
+    /* color: black; */
 }
 
 .company-chart {
@@ -103,13 +110,13 @@
     color: black;
 }
 
-.news div {
+.news-div {
     display: flex;
     margin-top: 3vh;
     padding: 15px;
     border: 1px solid black;
 }
 
-.news div:hover {
+.news-div:hover {
     box-shadow: 0 0 1px 1px black;
 }

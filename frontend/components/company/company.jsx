@@ -24,6 +24,7 @@ class Company extends React.Component {
   constructor(props) {
     super(props);
     this.chartData = this.chartData.bind(this);
+    this.news = this.news.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {}
@@ -34,22 +35,6 @@ class Company extends React.Component {
     this.props.fetchLogo(this.props.match.params.companyTik);
     this.props.fetchNews(this.props.match.params.companyTik);
   }
-
-  // marketCap(n) {
-  //     // got from https://gist.github.com/MartinMuzatko/1060fe584d17c7b9ca6e
-
-  //     if (n >= 1000) {
-  //         var units = ["k", "M", "B", "T"];
-
-  //         let unit = Math.floor((n.toFixed(0).length - 1) / 3) * 3;
-  //         let num = (n / ("1e" + unit)).toFixed(2);
-  //         let unitname = units[Math.floor(unit / 3) - 1];
-
-  //         return num + unitname;
-  //     }
-
-  //     return n.toLocaleString();
-  // }
 
   chartData() {
     let data = [];
@@ -94,6 +79,18 @@ class Company extends React.Component {
     );
   }
 
+  news() {
+    let news = this.props.news.map(article => (
+        <div className="news-div">
+        <a href={article.url}>
+          <img src={this.props.logo.url} alt="" />
+          <p>{article.headline}</p>
+        </a>
+      </div>
+    ));
+    return <div>{news}</div>;
+  }
+
   render() {
     if (this.props.chart === undefined) return null;
     if (this.props.price === undefined) return null;
@@ -118,30 +115,26 @@ class Company extends React.Component {
         </div>
         <div className="company-detail">
           <div className="company-info">
+          <a className="analytics" href={`./${this.props.match.params.companyTik.toLowerCase()}_lda_viz.html`}>
             <Button
               variant="outlined"
               color="primary"
               className={this.props.button}
-              id="something-button"
+              id="transfer-button"
             >
-              Something
+              Analytics
             </Button>
+                    </a>
+                    <Link className="Link" to={`/research/${this.props.match.params.companyTik}`}>
             <Button
               variant="outlined"
               color="primary"
               className={this.props.button}
-              id="something-button"
+              id="transfer-button"
             >
-              Something
+              Research
             </Button>
-            <Button
-              variant="outlined"
-              color="primary"
-              className={this.props.button}
-              id="something-button"
-            >
-              Something
-            </Button>
+                    </Link>
           </div>
           <br />
           <div className="company-stats">
@@ -172,30 +165,7 @@ class Company extends React.Component {
           <br />
           <div className="news">
             <h1>News</h1>
-            <div>
-              <a href={this.props.news[0].url}>
-                <img src={this.props.logo.url} alt="" />
-                <p>{this.props.news[0].headline}</p>
-              </a>
-            </div>
-            <div>
-              <a href={this.props.news[1].url}>
-                <img src={this.props.logo.url} alt="" />
-                <p>{this.props.news[1].headline}</p>
-              </a>
-            </div>
-            {/* <div>
-              <a href={this.props.news[2].url}>
-                <img src={this.props.logo.url} alt="" />
-                <p>{this.props.news[2].headline}</p>
-              </a>
-            </div> */}
-            {/* <div>
-              <a href={this.props.news[3].url}>
-                <img src={this.props.logo.url} alt="" />
-                <p>{this.props.news[3].headline}</p>
-              </a>
-            </div> */}
+            {this.news()}
           </div>
         </div>
       </div>

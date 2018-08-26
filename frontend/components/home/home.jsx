@@ -13,32 +13,19 @@ class Home extends React.Component {
 
   componentDidMount() {}
 
-  // marketCap(n) {
-  //     // got from https://gist.github.com/MartinMuzatko/1060fe584d17c7b9ca6e
-
-  //     if (n >= 1000) {
-  //         var units = ["k", "M", "B", "T"];
-
-  //         let unit = Math.floor((n.toFixed(0).length - 1) / 3) * 3;
-  //         let num = (n / ("1e" + unit)).toFixed(2);
-  //         let unitname = units[Math.floor(unit / 3) - 1];
-
-  //         return num + unitname;
-  //     }
-
-  //     return n.toLocaleString();
-  // }
-
   render() {
-    return <div className="home-item">
+    return (
+      <div className="home-item">
         <div className="home-navbar">
           <div className="home-navbar-left">
-            <div className="dragonfly">
-              <div className="dfbl" />
-              <div className="dfblk" />
-              <div className="dfblk" />
-              <div className="dfbl" />
-            </div>
+            <Link className="Link" to="/">
+              <div className="dragonfly">
+                <div className="dfbl" />
+                <div className="dfblk" />
+                <div className="dfblk" />
+                <div className="dfbl" />
+              </div>
+            </Link>
             <Link className="Link" to="/home">
               <Button variant="outlined" id="home">
                 Home
@@ -49,7 +36,12 @@ class Home extends React.Component {
         <div className="home-detail">
           <div className="watchlist">
             <Link className="Link" to="/company/FB">
-              <Button variant="outlined" color="secondary" className={this.props.button} id="company-button">
+              <Button
+                variant="outlined"
+                color="secondary"
+                className={this.props.button}
+                id="company-button"
+              >
                 <div>FB</div>
                 <div>Price Change</div>
                 <div>Percent Change</div>
@@ -57,7 +49,12 @@ class Home extends React.Component {
               </Button>
             </Link>
             <Link className="Link" to="/company/TWTR">
-              <Button variant="outlined" color="secondary" className={this.props.button} id="company-button">
+              <Button
+                variant="outlined"
+                color="secondary"
+                className={this.props.button}
+                id="company-button"
+              >
                 <div>TWTR</div>
                 <div>Price Change</div>
                 <div>Percent Change</div>
@@ -65,7 +62,12 @@ class Home extends React.Component {
               </Button>
             </Link>
             <Link className="Link" to="/company/SNAP">
-              <Button variant="outlined" color="secondary" className={this.props.button} id="company-button">
+              <Button
+                variant="outlined"
+                color="secondary"
+                className={this.props.button}
+                id="company-button"
+              >
                 <div>SNAP</div>
                 <div>Price Change</div>
                 <div>Percent Change</div>
@@ -76,7 +78,12 @@ class Home extends React.Component {
             <br />
             <br />
             <Link className="Link" to="/company/EA">
-              <Button variant="outlined" color="secondary" className={this.props.button} id="company-button">
+              <Button
+                variant="outlined"
+                color="secondary"
+                className={this.props.button}
+                id="company-button"
+              >
                 <div>EA</div>
                 <div>Price Change</div>
                 <div>Percent Change</div>
@@ -84,7 +91,12 @@ class Home extends React.Component {
               </Button>
             </Link>
             <Link className="Link" to="/company/ATVI">
-              <Button variant="outlined" color="secondary" className={this.props.button} id="company-button">
+              <Button
+                variant="outlined"
+                color="secondary"
+                className={this.props.button}
+                id="company-button"
+              >
                 <div>ATVI</div>
                 <div>Price Change</div>
                 <div>Percent Change</div>
@@ -92,7 +104,12 @@ class Home extends React.Component {
               </Button>
             </Link>
             <Link className="Link" to="/company/TTWO">
-              <Button variant="outlined" color="secondary" className={this.props.button} id="company-button">
+              <Button
+                variant="outlined"
+                color="secondary"
+                className={this.props.button}
+                id="company-button"
+              >
                 <div>TTWO</div>
                 <div>Price Change</div>
                 <div>Percent Change</div>
@@ -103,7 +120,12 @@ class Home extends React.Component {
             <br />
             <br />
             <Link className="Link" to="/company/MSFT">
-              <Button variant="outlined" color="secondary" className={this.props.button} id="company-button">
+              <Button
+                variant="outlined"
+                color="secondary"
+                className={this.props.button}
+                id="company-button"
+              >
                 <div>MSFT</div>
                 <div>Price Change</div>
                 <div>Percent Change</div>
@@ -111,7 +133,12 @@ class Home extends React.Component {
               </Button>
             </Link>
             <Link className="Link" to="/company/ORCL">
-              <Button variant="outlined" color="secondary" className={this.props.button} id="company-button">
+              <Button
+                variant="outlined"
+                color="secondary"
+                className={this.props.button}
+                id="company-button"
+              >
                 <div>ORCL</div>
                 <div>Price Change</div>
                 <div>Percent Change</div>
@@ -119,7 +146,12 @@ class Home extends React.Component {
               </Button>
             </Link>
             <Link className="Link" to="/company/SAP">
-              <Button variant="outlined" color="secondary" className={this.props.button} id="company-button">
+              <Button
+                variant="outlined"
+                color="secondary"
+                className={this.props.button}
+                id="company-button"
+              >
                 <div>SAP</div>
                 <div>Price Change</div>
                 <div>Percent Change</div>
@@ -127,7 +159,12 @@ class Home extends React.Component {
               </Button>
             </Link>
             <Link className="Link" to="/company/ADBE">
-              <Button variant="outlined" color="secondary" className={this.props.button} id="company-button">
+              <Button
+                variant="outlined"
+                color="secondary"
+                className={this.props.button}
+                id="company-button"
+              >
                 <div>ADBE</div>
                 <div>Price Change</div>
                 <div>Percent Change</div>
@@ -135,7 +172,12 @@ class Home extends React.Component {
               </Button>
             </Link>
             <Link className="Link" to="/company/CRM">
-              <Button variant="outlined" color="secondary" className={this.props.button} id="company-button">
+              <Button
+                variant="outlined"
+                color="secondary"
+                className={this.props.button}
+                id="company-button"
+              >
                 <div>CRM</div>
                 <div>Price Change</div>
                 <div>Percent Change</div>
@@ -143,7 +185,12 @@ class Home extends React.Component {
               </Button>
             </Link>
             <Link className="Link" to="/company/WDAY">
-              <Button variant="outlined" color="secondary" className={this.props.button} id="company-button">
+              <Button
+                variant="outlined"
+                color="secondary"
+                className={this.props.button}
+                id="company-button"
+              >
                 <div>WDAY</div>
                 <div>Price Change</div>
                 <div>Percent Change</div>
@@ -152,7 +199,8 @@ class Home extends React.Component {
             </Link>
           </div>
         </div>
-      </div>;
+      </div>
+    );
   }
 }
 
