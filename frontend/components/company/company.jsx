@@ -111,7 +111,7 @@ class Company extends React.Component {
           <div className="company-info">
             <a
               className="analytics"
-              href={`./${this.props.match.params.companyTik.toLowerCase()}_lda_viz.html`}
+              href={`./analytics/${this.props.match.params.companyTik.toLowerCase()}_lda_viz.html`}
             >
               <Button
                 variant="outlined"
