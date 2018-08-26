@@ -11,12 +11,13 @@ import Paper from "@material-ui/core/Paper";
 class Research extends React.Component {
   constructor(props) {
     super(props);
-    this.quarterly = this.quarterly.bind(this)
+    this.quarterlyRows = this.quarterlyRows.bind(this)
   }
 
   componentWillReceiveProps(nextProps) {}
 
   componentDidMount() {
+    this.props.fetchLogo(this.props.match.params.companyTik);
     this.props.fetchStats(this.props.match.params.companyTik);
     this.props.fetchFinancials(this.props.match.params.companyTik);
   }
@@ -36,25 +37,40 @@ class Research extends React.Component {
     return n.toLocaleString();
   }
 
-  quarterlyRow() {
-    let accumulate = [];
-    let keys = ['totalRevenue', 'grossProfit', 'operatingIncome', 'netIncome'];
-    for (k of keys) {
+  quarterlyRows() {
+    let rows = [];
+    let metrics = {
+      'totalRevenue': 'Total Revenue',
+      'grossProfit': 'Gross Profit',
+      'operatingIncome': 'Operating Income',
+      'netIncome': 'Net Income'
+    };
+    for (let k of Object.keys(metrics)) {
       // row label
-      accumulate.push(<TableCell>{ k }</TableCell>)
+      let cols = [];
+      cols.push(<TableCell>{ metrics[k] }</TableCell>)
       let label = k;
       for (let i = 0; i < 4; i++) {
         // row value
-        let value = this.props.financials[k][i];
-        accumulate.push(<TableCell>{ value }</TableCell>)
+        // debugger
+        let value = this.marketCap(this.props.financials.financials[i][k]);
+        cols.push(<TableCell>{ value }</TableCell>)
       }
+      rows.push(<TableRow>{ cols }</TableRow>);
     }
-    return accumulate;
+    return rows;
   }
 
   render() {
+    if (this.props.logo === undefined) return null;
     if (this.props.stats === undefined) return null;
-    if (this.props.financials == undefined) return null;
+    if (this.props.financials === undefined) return null;
+
+    let filings = [
+      {"datetime": "February 1, 2018", "filing": "10-K"},
+      {"datetime": "July 25, 2018", "filing": "8-K"},
+      {"datetime": "July 26, 2018", "filing": "10-Q"}
+    ];
 
     return (
       <div className="research-item">
@@ -77,6 +93,9 @@ class Research extends React.Component {
           </div>
         </div>
         <div className="research-detail">
+          <img src={ this.props.logo.url } />
+          <br />
+          <br />
           <Paper>
             <Table>
               <TableHead>
@@ -113,6 +132,8 @@ class Research extends React.Component {
               </TableBody>
             </Table>
           </Paper>
+          <br />
+          <br />
           <Paper>
             <Table>
               <TableHead>
@@ -125,8 +146,29 @@ class Research extends React.Component {
                 </TableRow>
               </TableHead>
               <TableBody>
-                /* this.props.financials */
-                { this.quarterly() }
+                { this.quarterlyRows() }
+              </TableBody>
+            </Table>
+          </Paper>
+          <br />
+          <br />
+          <Paper>
+            <Table className="filings-table">
+              <TableHead>
+                <TableRow>
+                  <TableCell>Date</TableCell>
+                  <TableCell>Filing</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {filings.map((row, i) => {
+                  return (
+                    <TableRow key={ i }>
+                      <TableCell>{ row.datetime }</TableCell>
+                      <TableCell>{ row.filing }</TableCell>
+                    </TableRow>
+                  )
+                })}
               </TableBody>
             </Table>
           </Paper>

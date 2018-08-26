@@ -1,6 +1,6 @@
 .research-detail {
-    margin-left: 5vw;
-    width: 90vw;
+    margin-left: 10vw;
+    width: 80vw;
     margin-top: 5vw;
 }
 
@@ -30,4 +30,8 @@
     border: 1px solid #4bb4ff;
     background-color: #4bb4ff;
     color: white;
+}
+
+.filings-table {
+    margin-bottom: 5vh;
 }
