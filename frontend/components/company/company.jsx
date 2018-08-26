@@ -87,6 +87,9 @@ class Company extends React.Component {
     if (this.props.price === undefined) return null;
     if (this.props.logo === undefined) return null;
     if (this.props.news === undefined) return null;
+    let earnings = {
+      'FB': 'November 7, 2018'
+    };
     return (
       <div className="company-item">
         <div className="company-navbar">
@@ -159,7 +162,7 @@ class Company extends React.Component {
               id="quarter-button"
             >
               <div>Next Quarter Date</div>
-              <div>December 5th, 2018</div>
+              <div>{ earnings[this.props.match.params.companyTik] || 'TBD' }</div>
             </Button>
           </div>
           <br />

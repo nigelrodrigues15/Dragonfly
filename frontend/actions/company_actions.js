@@ -50,3 +50,12 @@ export const receiveStats = stats => {
         stats
     };
 };
+export const RECEIVE_FINANCIALS = "RECEIVE_FINANCIALS";
+export const fetchFinancials = sym => dispatch =>
+  CompanyAPIUtil.fetchFinancials(sym).then(financials => dispatch(receiveFinancials(financials)));
+export const receiveFinancials = financials => {
+  return {
+    type: RECEIVE_FINANCIALS,
+    financials
+  };
+};

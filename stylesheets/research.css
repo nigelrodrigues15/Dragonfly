@@ -1,3 +1,9 @@
+.research-detail {
+    margin-left: 10vw;
+    width: 80vw;
+    margin-top: 5vw;
+}
+
 .research-navbar {
     /* background-color: #21ce99; */
     display: flex;
@@ -24,4 +30,8 @@
     border: 1px solid #4bb4ff;
     background-color: #4bb4ff;
     color: white;
+}
+
+.filings-table {
+    margin-bottom: 5vh;
 }
