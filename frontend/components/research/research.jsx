@@ -35,7 +35,9 @@ class Research extends React.Component {
             </Button>
           </div>
         </div>
-        <div className="company-detail" />
+        <div className="company-detail"> 
+        
+        </div>
       </div>
     );
   }
