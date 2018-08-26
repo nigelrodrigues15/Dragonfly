@@ -4,3 +4,24 @@ export const fetchChart = (sym) => (
         url: `https://api.iextrading.com/1.0/stock/${sym}/chart/1y?filter=date,label,high`
     })
 );
+
+export const fetchPrice = sym => (
+    $.ajax({
+        method: 'GET',
+        url: `https://api.iextrading.com/1.0/stock/${sym}/price`
+    })
+);
+
+export const fetchlogo = sym => (
+    $.ajax({
+        method: 'GET',
+        url: `https://api.iextrading.com/1.0/stock/${sym}/logo`
+    })
+);
+
+export const fetchNews = (sym) => (
+    $.ajax({
+        method: 'GET',
+        url: `https://api.iextrading.com/1.0/stock/${sym}/news/last/5`
+    })
+);

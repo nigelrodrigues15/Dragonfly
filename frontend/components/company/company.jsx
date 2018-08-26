@@ -30,6 +30,9 @@ class Company extends React.Component {
 
   componentDidMount() {
     this.props.fetchChart(this.props.match.params.companyTik);
+    this.props.fetchPrice(this.props.match.params.companyTik);
+    this.props.fetchLogo(this.props.match.params.companyTik);
+    this.props.fetchNews(this.props.match.params.companyTik);
   }
 
   // marketCap(n) {
@@ -92,23 +95,25 @@ class Company extends React.Component {
   }
 
   render() {
-      if (this.props.chart === undefined) return null;
+    if (this.props.chart === undefined) return null;
+    if (this.props.price === undefined) return null;
+    if (this.props.logo === undefined) return null;
+    if (this.props.news === undefined) return null;
     return (
       <div className="company-item">
         <div className="company-navbar">
           <div className="company-navbar-left">
-            <h1>{this.props.match.params.companyTik}</h1>
-          </div>
-          <div className="company-navbar-right">
-            <form className="company-search" action="">
-              <input
-                id="search-input"
-                type="text"
-                name="company"
-                value="Company"
-              />
-              <input type="submit" value="Search" />
-            </form>
+            <div className="dragonfly">
+              <div className="dfbl" />
+              <div className="dfblk" />
+              <div className="dfblk" />
+              <div className="dfbl" />
+            </div>
+            <Link className="Link" to="/home">
+              <Button variant="outlined" id="home">
+                Home
+              </Button>
+            </Link>
           </div>
         </div>
         <div className="company-detail">
@@ -139,7 +144,17 @@ class Company extends React.Component {
             </Button>
           </div>
           <br />
+          <div className="company-stats">
+            <div>
+              <img src={this.props.logo.url} alt="" />
+            </div>
+            <div>
+              <h1 id="company-tik">{this.props.match.params.companyTik}</h1>
+              <h2 id="price">${this.props.price}</h2>
+            </div>
+          </div>
           <div className="company-chart">
+            <h2 id="ogprice">${this.props.price}</h2>
             {this.chart()}
           </div>
           <br />
@@ -155,28 +170,32 @@ class Company extends React.Component {
             </Button>
           </div>
           <br />
-          <div>
+          <div className="news">
             <h1>News</h1>
-            <List>
-              <ListItem>
-                <Avatar>
-                  <ImageIcon />
-                </Avatar>
-                <ListItemText primary="News Article 1" />
-              </ListItem>
-              <ListItem>
-                <Avatar>
-                  <WorkIcon />
-                </Avatar>
-                <ListItemText primary="News Article 2" />
-              </ListItem>
-              <ListItem>
-                <Avatar>
-                  <BeachAccessIcon />
-                </Avatar>
-                <ListItemText primary="News Article 3" />
-              </ListItem>
-            </List>
+            <div>
+              <a href={this.props.news[0].url}>
+                <img src={this.props.logo.url} alt="" />
+                <p>{this.props.news[0].headline}</p>
+              </a>
+            </div>
+            <div>
+              <a href={this.props.news[1].url}>
+                <img src={this.props.logo.url} alt="" />
+                <p>{this.props.news[1].headline}</p>
+              </a>
+            </div>
+            {/* <div>
+              <a href={this.props.news[2].url}>
+                <img src={this.props.logo.url} alt="" />
+                <p>{this.props.news[2].headline}</p>
+              </a>
+            </div> */}
+            {/* <div>
+              <a href={this.props.news[3].url}>
+                <img src={this.props.logo.url} alt="" />
+                <p>{this.props.news[3].headline}</p>
+              </a>
+            </div> */}
           </div>
         </div>
       </div>

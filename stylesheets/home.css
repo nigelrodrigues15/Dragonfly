@@ -1,15 +1,15 @@
 .home-navbar {
     /* background-color: #21ce99; */
     display: flex;
-    justify-content: space-between;
     height: 70px;
     margin-left: 5vw;
     align-items: center;
 }
 
-.home-navbar-right {
+.home-navbar-left {
     display: inline-flex;
-    margin-right: 5vw;
+    justify-content: center;
+    align-items: center;
 }
 
 .company-search input {
@@ -50,4 +50,11 @@
     align-items: center;
     width: 25%;
     height: 50px;
+}
+
+#home {
+    margin-left: 5vw;
+    border: 1px solid #4bb4ff;
+    background-color: #4bb4ff;
+    color: white;
 }

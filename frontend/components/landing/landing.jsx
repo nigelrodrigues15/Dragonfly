@@ -1,26 +1,37 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
 const landing = () => {
   return (
     <div className="landing">
       <div className="landing-navbar">
         <div className="landing-navbar-left">
+        <div className="dragonfly">
+        <div className="dfbl"></div>
+        <div className="dfblk"></div>
+        <div className="dfblk"></div>
+        <div className="dfbl"></div>
+        </div>
           <h1>Dragonfly</h1>
         </div>
         <div className="landing-navbar-right">
           <h3 className="home">
             <Link className="Link" to="/home">
-              Home
+              <Button
+                variant="outlined"
+                id="home-button"
+              >
+                Home
+              </Button>
             </Link>
           </h3>
-          <h3 className="nav-about">About</h3>
         </div>
       </div>
       <div className="intro">
         <h1>Learn how to invest like a professional.</h1>
       </div>
-      <div className="about">
+      {/* <div className="about">
         <h1>What is Dragonfly?</h1>
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae,
@@ -28,7 +39,7 @@ const landing = () => {
           neque autem voluptatibus corporis cum illum nam maiores sunt, magni
           quia!
         </p>
-      </div>
+      </div> */}
       <div className="education">
         <h1>Education</h1>
         <div>
