@@ -1,0 +1,53 @@
+.home-navbar {
+    /* background-color: #21ce99; */
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    margin-left: 5vw;
+    align-items: center;
+}
+
+.home-navbar-right {
+    display: inline-flex;
+    margin-right: 5vw;
+}
+
+.company-search input {
+    display: inline-flex;
+    margin-right: 25px;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+#search-input {
+    padding-right: 15vw;
+}
+
+.home-detail {
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
+    margin-top: 50px;
+    margin-left: 5vw;
+}
+
+.watchlist {
+    height: 100vh;
+    /* background-color: red; */
+    opacity: 0.5;
+}
+
+#company-button {
+    /* display: flex;
+    justify-content: space-between; */
+    width: 90vw;
+    margin-bottom: 30px;
+}
+
+#company-button div {
+    /* text-align: left; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    height: 50px;
+}
