@@ -11,16 +11,50 @@ import Paper from "@material-ui/core/Paper";
 class Research extends React.Component {
   constructor(props) {
     super(props);
+    this.quarterly = this.quarterly.bind(this)
   }
 
   componentWillReceiveProps(nextProps) {}
 
   componentDidMount() {
     this.props.fetchStats(this.props.match.params.companyTik);
+    this.props.fetchFinancials(this.props.match.params.companyTik);
+  }
+
+  marketCap(n) {
+    if (n === undefined) return null;
+    if (n >= 1000) {
+      let units = ["k", "M", "B", "T"];
+
+      let unit = Math.floor((n.toFixed(0).length - 1) / 3) * 3;
+      let num = (n / ("1e" + unit)).toFixed(2);
+      let unitname = units[Math.floor(unit / 3) - 1];
+
+      return num + unitname;
+    }
+
+    return n.toLocaleString();
+  }
+
+  quarterlyRow() {
+    let accumulate = [];
+    let keys = ['totalRevenue', 'grossProfit', 'operatingIncome', 'netIncome'];
+    for (k of keys) {
+      // row label
+      accumulate.push(<TableCell>{ k }</TableCell>)
+      let label = k;
+      for (let i = 0; i < 4; i++) {
+        // row value
+        let value = this.props.financials[k][i];
+        accumulate.push(<TableCell>{ value }</TableCell>)
+      }
+    }
+    return accumulate;
   }
 
   render() {
     if (this.props.stats === undefined) return null;
+    if (this.props.financials == undefined) return null;
 
     return (
       <div className="research-item">
@@ -42,29 +76,57 @@ class Research extends React.Component {
             </Button>
           </div>
         </div>
-        <div className="company-detail">
-          <h1>table</h1>
+        <div className="research-detail">
           <Paper>
             <Table>
               <TableHead>
                 <TableRow>
-                  <TableCell>Dessert (100g serving)</TableCell>
-                  <TableCell numeric>Calories</TableCell>
-                  <TableCell numeric>Fat (g)</TableCell>
-                  <TableCell numeric>Carbs (g)</TableCell>
-                  <TableCell numeric>Protein (g)</TableCell>
+                  <TableCell>Key Statistics</TableCell>
+                  <TableCell numeric>Value</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
                 <TableRow>
-                  <CustomTableCell component="th" scope="row">
-                    info
-                  </CustomTableCell>
-                  <CustomTableCell numeric>4</CustomTableCell>
-                  <CustomTableCell numeric>4</CustomTableCell>
-                  <CustomTableCell numeric>4</CustomTableCell>
-                  <CustomTableCell numeric>4</CustomTableCell>
+                  <TableCell component="th" scope="row">
+                    Market Cap
+                  </TableCell>
+                  <TableCell numeric>{ this.marketCap(this.props.stats.marketcap) }</TableCell>
                 </TableRow>
+                <TableRow>
+                  <TableCell component="th" scope="row">
+                    EPS
+                  </TableCell>
+                  <TableCell numeric>{ this.props.stats.latestEPS }</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell component="th" scope="row">
+                    PE Ratio
+                  </TableCell>
+                  <TableCell numeric>{ this.props.stats.peRatioHigh }</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell component="th" scope="row">
+                    Short Ratio
+                  </TableCell>
+                  <TableCell numeric>{ this.props.stats.shortRatio.toFixed(2) }</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </Paper>
+          <Paper>
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableCell>Historical Financial</TableCell>
+                  <TableCell>Q1</TableCell>
+                  <TableCell>Q2</TableCell>
+                  <TableCell>Q3</TableCell>
+                  <TableCell>Q4</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                /* this.props.financials */
+                { this.quarterly() }
               </TableBody>
             </Table>
           </Paper>

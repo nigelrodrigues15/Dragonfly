@@ -32,3 +32,10 @@ export const fetchStats = sym => (
         url: `https://api.iextrading.com/1.0/stock/${sym}/stats?filter=marketcap,latestEPS,shortRatio,peRatioHigh`
     })
 );
+
+export const fetchFinancials = sym => (
+  $.ajax({
+    method: 'GET',
+    url: `https://api.iextrading.com/1.0/stock/${sym}/financials?filter=totalRevenue,grossProfit,operatingIncome,netIncome`
+  })
+);

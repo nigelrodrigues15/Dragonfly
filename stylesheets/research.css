@@ -1,3 +1,9 @@
+.research-detail {
+    margin-left: 5vw;
+    width: 90vw;
+    margin-top: 5vw;
+}
+
 .research-navbar {
     /* background-color: #21ce99; */
     display: flex;
