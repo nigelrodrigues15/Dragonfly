@@ -29,6 +29,6 @@ export const fetchNews = (sym) => (
 export const fetchStats = sym => (
     $.ajax({
         method: 'GET',
-        url: `https://api.iextrading.com/1.0/stock/${sym}/stats?filter=marketcap,latestEPS,revenue,grossProfit,shortRatio,peRatioHigh`
+        url: `https://api.iextrading.com/1.0/stock/${sym}/stats?filter=marketcap,latestEPS,shortRatio,peRatioHigh`
     })
 );
