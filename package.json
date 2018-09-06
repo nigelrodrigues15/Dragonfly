@@ -4,9 +4,12 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "webpack --watch",
-        "postinstall": "webpack"
+        "webpack": "webpack --watch",
+        "postinstall": "webpack",
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test --env=jsdom",
+        "eject": "react-scripts eject"
     },
     "engines": {
         "node": "8.9.0",
@@ -27,11 +30,13 @@
         "react-dom": "^16.4.2",
         "react-redux": "^5.0.7",
         "react-router-dom": "^4.3.1",
+        "react-scripts": "1.1.5",
         "recharts": "^1.1.0",
         "redux": "^4.0.0",
         "redux-logger": "^3.0.6",
         "redux-thunk": "^2.3.0",
         "webpack": "^4.17.1",
         "webpack-cli": "^3.1.0"
-    }
+    },
+    "proxy": "http://localhost:8001"
 }
