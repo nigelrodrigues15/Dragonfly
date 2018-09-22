@@ -1,4 +1,4 @@
-import * as CompanyAPIUtil from "../util/company_api_util";
+import * as CompanyAPIUtil from "../util/company_api_util.jsx";
 
 export const RECEIVE_CHART = "RECEIVE_CHART";
 export const fetchChart = (sym) => dispatch =>
@@ -52,10 +52,10 @@ export const receiveStats = stats => {
 };
 export const RECEIVE_FINANCIALS = "RECEIVE_FINANCIALS";
 export const fetchFinancials = sym => dispatch =>
-  CompanyAPIUtil.fetchFinancials(sym).then(financials => dispatch(receiveFinancials(financials)));
+    CompanyAPIUtil.fetchFinancials(sym).then(financials => dispatch(receiveFinancials(financials)));
 export const receiveFinancials = financials => {
-  return {
-    type: RECEIVE_FINANCIALS,
-    financials
-  };
+    return {
+        type: RECEIVE_FINANCIALS,
+        financials
+    };
 };
